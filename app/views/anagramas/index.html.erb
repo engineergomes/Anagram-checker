@@ -1,0 +1,24 @@
+<h1>Resultados:</h1>
+ 
+<table>
+  <tr>
+    <th>Palavra 1</th>
+    <th>Palavra 2</th>
+    <th>Resultado</th>
+      
+  </tr>
+ 
+  <% @anagramas.each do |anagrama| %>
+    <tr>
+      <td><%= anagrama.palavra1 %></td>
+      <td><%= anagrama.palavra2 %></td>
+      <td><%= anagrama.resultado %></td>
+      <td><%= link_to 'Mostrar', anagrama_path(anagrama) %></td>
+      <td><%= link_to 'Apagar', anagrama_path(anagrama),
+              method: :delete%></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Inicio', welcome_index_path %>
+<%= link_to 'Novo Anagrama', new_anagrama_path %>

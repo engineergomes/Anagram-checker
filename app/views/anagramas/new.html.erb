@@ -1,0 +1,34 @@
+<h1>Novo Anagrama</h1>
+
+<%= form_with scope: :anagrama, url: anagramas_path do |form| %>
+
+    <% if @anagrama.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@anagrama.errors.count, "error") %> O anagrama não pode ser verificado:
+      </h2>
+      <ul>
+        <% @anagrama.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+  <p>
+    <%= form.label :primeira_palavra %><br>
+    <%= form.text_field :palavra1 %>
+  </p>
+ 
+  <p>
+    <%= form.label :segunda_palavra %><br>
+    <%= form.text_field :palavra2 %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', anagramas_path %>
