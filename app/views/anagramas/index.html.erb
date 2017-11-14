@@ -10,9 +10,15 @@
  
   <% @anagramas.each do |anagrama| %>
     <tr>
+        
       <td><%= anagrama.palavra1 %></td>
       <td><%= anagrama.palavra2 %></td>
-      <td><%= anagrama.resultado %></td>
+       
+      <td>  <% if anagrama.resultado %>
+        <%= "são anagramas!" %>
+    <% else %>
+        <%= "Não são anagramas!"%>   
+    <%end%></td>
       <td><%= link_to 'Mostrar', anagrama_path(anagrama) %></td>
       <td><%= link_to 'Apagar', anagrama_path(anagrama),
               method: :delete%></td>

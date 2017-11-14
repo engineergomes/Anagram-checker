@@ -1,8 +1,5 @@
 class AnagramasController < ApplicationController
-    def index
-        @anagramas = Anagrama.all
-    end
-    
+
     def show
         @anagrama = Anagrama.find(params[:id])
     end
@@ -13,7 +10,7 @@ class AnagramasController < ApplicationController
     
     def create
         @anagrama = Anagrama.new(anagrama_params)
-        
+        @anagrama.resultado = @anagrama.verificar
         
         if @anagrama.save 
             redirect_to @anagrama
@@ -28,6 +25,10 @@ class AnagramasController < ApplicationController
         @anagrama.destroy
         redirect_to @anagrama
 end
+        def index
+        @anagramas = Anagrama.all
+    end
+    
     
     private
         def anagrama_params

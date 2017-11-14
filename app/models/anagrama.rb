@@ -1,20 +1,7 @@
 class Anagrama < ApplicationRecord
-    validates :palavra1, presence: true, length: { minimum: 1 }
-    validates :palavra2, presence: true, length: { minimum: 1 }
-    
-    def verificador
-        if palavra1.chars.to_a.sort.join == palavra2.chars.to_a.sort.join
-            true
-        else
-            false
-        end
+    validates :palavra1, presence: true
+    validates :palavra2, presence: true
+    def verificar
+        palavra1.downcase.chars.sort.join.squish==palavra2.downcase.chars.sort.join.squish
     end
-    def resultado
-        if verificador
-            "São anagramas! :)"
-        else
-            "Não são anagramas! :("
-        end
-    end
-        
 end

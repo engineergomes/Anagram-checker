@@ -10,7 +10,12 @@
 
 <p>
   <strong>Resultado:</strong>
-  <%= @anagrama.resultado %>
+    <% if @anagrama.resultado %>
+        <%= "são anagramas!" %>
+    <% else %>
+        <%= "Não são anagramas!"%>   
+    <%end%>
+
 </p>
 
 <%= link_to 'Back', anagramas_path %>

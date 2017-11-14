@@ -3,7 +3,9 @@
 one:
   palavra1: MyString
   palavra2: MyString
+  resultado: false
 
 two:
   palavra1: MyString
   palavra2: MyString
+  resultado: false
